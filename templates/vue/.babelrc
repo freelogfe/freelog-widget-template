@@ -1,34 +1,12 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false,
-        "targets": {
-          "browsers": [
-            "> 1%",
-            "last 2 versions",
-            "not ie <= 8"
-          ]
-        }
-      }
-    ],
-    "stage-2"
-  ],
+  "presets": ["@babel/env"],
   "plugins": [
-    "transform-custom-element-classes",
-    "transform-es2015-classes"
-  ],
-  "env": {
-    "test": {
-      "presets": [
-        "env",
-        "es2015",
-        "stage-2"
-      ],
-      "plugins": [
-        "istanbul"
-      ]
-    }
-  }
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/transform-arrow-functions",
+    "@babel/plugin-transform-runtime",
+    ["@babel/transform-async-to-generator", {
+      "module": "bluebird",
+      "method": "coroutine"
+    }]
+  ]
 }
