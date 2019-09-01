@@ -9,6 +9,25 @@ module.exports = merge(baseConfig,{
   optimization: {
     noEmitOnErrors: true,
   },
+
+  module: {
+    rules: [{
+      test: /\.css$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'less-loader',
+      ]
+    }, {
+      test: /\.less$/,
+      use: [
+        MiniCssExtractPlugin.loader,
+        'css-loader',
+        'less-loader',
+      ]
+    }]
+  },
+
   devtool: '#cheap-module-eval-source-map',
   performance: {
     hints: false
