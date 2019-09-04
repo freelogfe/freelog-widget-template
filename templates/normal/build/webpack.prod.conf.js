@@ -15,14 +15,25 @@ module.exports = merge(baseConfig, {
   },
 
   module: {
-    rules: [{
-      test: /\.(less|css)$/,
-      use: [
-        MiniCssExtractPlugin.loader,
-        'css-loader',
-        'less-loader',
-      ]
-    }]
+    rules: [
+      /* config.module.rule('css') */
+      {
+        test: /\.css$/,
+        use: [
+          {{#if enableShadowDom}}{{else}}'style-loader',{{/if}}
+          'css-loader',
+        ]
+      },
+      /* config.module.rule('less') */
+      {
+        test: /\.less)$/,
+        use: [
+          {{#if enableShadowDom}}{{else}}'style-loader',{{/if}}
+          'css-loader',
+          'less-loader',
+        ]
+      },
+    ]
   },
 
   optimization: {

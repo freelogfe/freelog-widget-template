@@ -11,21 +11,25 @@ module.exports = merge(baseConfig,{
   },
 
   module: {
-    rules: [{
-      test: /\.css$/,
-      use: [
-        MiniCssExtractPlugin.loader,
-        'css-loader',
-        'less-loader',
-      ]
-    }, {
-      test: /\.less$/,
-      use: [
-        MiniCssExtractPlugin.loader,
-        'css-loader',
-        'less-loader',
-      ]
-    }]
+    rules: [
+      /* config.module.rule('css') */
+      {
+        test: /\.css$/,
+        use: [
+          {{#if enableShadowDom}}{{else}}MiniCssExtractPlugin.loader,{{/if}}
+          'css-loader'
+        ],
+      },
+      /* config.module.rule('less') */
+      {
+        test: /\.less/,
+        use: [
+          {{#if enableShadowDom}}{{else}}MiniCssExtractPlugin.loader,{{/if}}
+          'css-loader',
+          'less-loader'
+        ],
+      }
+    ]
   },
 
   devtool: '#cheap-module-eval-source-map',
