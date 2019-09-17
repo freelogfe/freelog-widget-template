@@ -16,7 +16,7 @@ module.exports = merge(baseConfig,{
       {
         test: /\.css$/,
         use: [
-          {{#if enableShadowDom}}{{else}}MiniCssExtractPlugin.loader,{{/if}}
+          {{#if enableShadowDom}}{{else}}'style-loader',{{/if}}
           'css-loader'
         ],
       },
@@ -24,7 +24,7 @@ module.exports = merge(baseConfig,{
       {
         test: /\.less/,
         use: [
-          {{#if enableShadowDom}}{{else}}MiniCssExtractPlugin.loader,{{/if}}
+          {{#if enableShadowDom}}{{else}}'style-loader',{{/if}}
           'css-loader',
           'less-loader'
         ],
