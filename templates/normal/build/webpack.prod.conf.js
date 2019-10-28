@@ -26,7 +26,7 @@ module.exports = merge(baseConfig, {
       },
       /* config.module.rule('less') */
       {
-        test: /\.less)$/,
+        test: /\.less$/,
         use: [
           {{#if enableShadowDom}}{{else}}'style-loader',{{/if}}
           'css-loader',

@@ -14,6 +14,11 @@ module.exports = {
     },
     autoOpenBrowser: true,
     proxyTable: {
+      "/v1": {
+        target: "http://qi.testfreelog.com",
+        secure: false, 
+        changeOrigin: true,
+      }
     },
   }
 }

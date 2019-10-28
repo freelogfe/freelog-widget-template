@@ -9,6 +9,29 @@ module.exports = merge(baseConfig,{
   optimization: {
     noEmitOnErrors: true,
   },
+
+  module: {
+    rules: [
+      /* config.module.rule('css') */
+      {
+        test: /\.css$/,
+        use: [
+          {{#if enableShadowDom}}{{else}}'style-loader',{{/if}}
+          'css-loader'
+        ],
+      },
+      /* config.module.rule('less') */
+      {
+        test: /\.less/,
+        use: [
+          {{#if enableShadowDom}}{{else}}'style-loader',{{/if}}
+          'css-loader',
+          'less-loader'
+        ],
+      }
+    ]
+  },
+
   devtool: '#cheap-module-eval-source-map',
   performance: {
     hints: false

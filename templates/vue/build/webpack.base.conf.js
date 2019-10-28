@@ -93,23 +93,6 @@ module.exports = {
           }
         }],
       },
-      /* config.module.rule('css') */
-      {
-        test: /\.css$/,
-        use: [
-          {{#if enableShadowDom}}{{else}}'style-loader',{{/if}}
-          'css-loader'
-        ],
-      },
-      /* config.module.rule('less') */
-      {
-        test: /\.less/,
-        use: [
-          {{#if enableShadowDom}}{{else}}'style-loader',{{/if}}
-          'css-loader',
-          'less-loader'
-        ],
-      },
       /* config.module.rule('fonts') */
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
