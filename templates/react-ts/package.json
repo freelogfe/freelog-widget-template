@@ -2,8 +2,8 @@
   "name": "{{name}}",
   "description": "{{description}}",
   "version": "1.0.0",
-  "author": "",
-  "license": "MIT",
+  "author": "{{author}}",
+  "license": "{{license}}",
   "keywords": [
     "direflow",
     "react",
