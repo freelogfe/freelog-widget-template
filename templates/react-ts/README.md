@@ -7,6 +7,4 @@ This component was bootstrapped with [Direflow](https://direflow.io).
 <{{ name }}></{{ name }}>
 ```
 
-### {{enableShadowDom}}
-
 Use this README to describe your Direflow Component

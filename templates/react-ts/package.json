@@ -9,6 +9,7 @@
     "react",
     "webcomponent"
   ],
+  "enableShadowDom": "{{enableShadowDom}}",
   "homepage": "https://direflow.io/",
   "repository": {
     "type": "git",
