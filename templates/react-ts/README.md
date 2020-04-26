@@ -1,10 +1,10 @@
 This component was bootstrapped with [Direflow](https://direflow.io).
 
-# React Ts
-> Hello React
+# {{ name }}
+> {{ description }}
 
 ```html
-<react-ts></react-ts>
+<{{ name }}></{{ name }}>
 ```
 
 Use this README to describe your Direflow Component

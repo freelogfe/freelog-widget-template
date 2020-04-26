@@ -1,6 +1,6 @@
 {
-  "name": "react-ts",
-  "description": "Hello React",
+  "name": "{{name}}",
+  "description": "{{description}}",
   "version": "1.0.0",
   "author": "",
   "license": "MIT",

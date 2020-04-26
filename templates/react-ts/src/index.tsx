@@ -9,12 +9,12 @@
  * It can be left blank if not needed.
  */
 
-import ReactTs from './direflow-components/react-ts';
+import ReactTs from './direflow-components/component';
 
 ReactTs.then((element) => {
 
   /**
    * Access DOM node when it's mounted
    */
-  console.log('react-ts is mounted on the DOM', element);
+  console.log('{{ name }} is mounted on the DOM', element);
 });

@@ -7,7 +7,7 @@ interface IProps {
   sampleList: string[];
 }
 
-const App: FC<IProps> = (props) => {
+const App: FC<IProps> = (props: { sampleList: string[]; componentTitle: any; }) => {
   const dispatch = useContext(EventContext);
 
   const handleClick = () => {
