@@ -5,6 +5,7 @@ export default DireflowComponent.create({
   component: App,
   configuration: {
     tagname: '{{ name }}',
+    useShadow: '{{enableShadowDom}}' === 'true',
   },
   plugins: [
     {
