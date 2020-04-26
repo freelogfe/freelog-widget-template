@@ -4,7 +4,8 @@ import App from './App';
 export default DireflowComponent.create({
   component: App,
   configuration: {
-    tagname: 'react-js',
+    tagname: '{{ name }}',
+    useShadow: {{enableShadowDom}},
   },
   plugins: [
     {

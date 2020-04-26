@@ -9,7 +9,7 @@
  * this file can be safely deleted.
  */
 
-import App from './direflow-components/react-js/App';
+import App from './direflow-components/component/App';
 
 export { 
   App 

@@ -9,12 +9,12 @@
  * It can be left blank if not needed.
  */
 
-import ReactJs from './direflow-components/react-js';
+import ReactJs from './direflow-components/component';
 
 ReactJs.then((element) => {
 
   /**
    * Access DOM node when it's mounted
    */
-  console.log('react-js is mounted on the DOM', element);
+  console.log('component is mounted on the DOM', element);
 });
