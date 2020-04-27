@@ -23,7 +23,7 @@
     "build"
   ],
   "scripts": {
-    "start": "direflow-scripts start",
+    "start": "node dev-srcript/generate-page-template.js && direflow-scripts start",
     "build": "direflow-scripts build",
     "build:lib": "direflow-scripts build:lib",
     "test": "direflow-scripts test"
@@ -53,7 +53,9 @@
     "typescript": "^3.7.0",
     "webpack-cli": "^3.3.11",
     "ts-loader": "^6.2.2",
-    "http-proxy-middleware": "^1.0.3"
+    "http-proxy-middleware": "^1.0.3",
+    "axios": "^0.19.2",
+    "html-loader": "^1.1.0"
   },
   "eslintConfig": {
     "extends": "react-app"
