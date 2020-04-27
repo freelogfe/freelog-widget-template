@@ -1,6 +1,6 @@
 import React, { FC, useContext } from 'react';
 import { EventContext, Styled } from 'direflow-component';
-import styles from './App.css';
+import styles from './App.scss';
 
 interface IProps {
   componentTitle: string;
