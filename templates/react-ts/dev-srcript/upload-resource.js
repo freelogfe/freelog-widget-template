@@ -63,7 +63,7 @@ function uploadWidget(filePath) {
                 return;
             }
 
-            const body = JSON.parse(res.body)
+            const body = JSON.parse(res.body);
             if (body.ret !== 0 || body.errcode !== 0) {
                 reject(body.msg);
                 return;
