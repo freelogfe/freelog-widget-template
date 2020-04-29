@@ -20,7 +20,6 @@ async function init() {
     };
 
     const {data} = await axios.get(serverOrigin + '/v1/releases/detail', config);
-
     console.log(data, 'data');
     if (data.data) {
         await updateRelease(data.data.releaseId);
@@ -35,14 +34,15 @@ async function init() {
 init();
 
 async function newRelease() {
-
+    console.log('******');
     const resource = await uploadResource();
+    console.log(resource, 'resource');
 
     const params = {
-        resourceId: resource.resourceId,
+        resourceId: resource.resourceId || resource.sha1,
         releaseName: projectPackage.name,
         version: projectPackage.version,
-        upcastReleases: [],
+        baseUpcastReleases: [],
         resolveReleases: [],
     };
 
