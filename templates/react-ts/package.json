@@ -26,6 +26,8 @@
     "start": "node dev-srcript/generate-page-template.js && direflow-scripts start",
     "build": "direflow-scripts build",
     "build:lib": "direflow-scripts build:lib",
+    "upload": "node dev-srcript/upload-resource.js",
+    "release": "node dev-srcript/release-resource.js",
     "test": "direflow-scripts test"
   },
   "dependencies": {

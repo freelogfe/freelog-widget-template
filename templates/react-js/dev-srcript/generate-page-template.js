@@ -1,9 +1,11 @@
+const {aliyuncsPagebuildUrl} = require('./config');
+
 const axios = require('axios');
 const fs = require('fs');
 
 (async () => {
 
-    const {data: templateString} = await axios.get('http://test-frcdn.oss-cn-shenzhen.aliyuncs.com/pagebuild/index.html');
+    const {data: templateString} = await axios.get(aliyuncsPagebuildUrl);
 
 
     // const html = templateString.replace('<!-- Theme template placeholder -->', `<%= require('html-loader!./them-template.html') %>`);
