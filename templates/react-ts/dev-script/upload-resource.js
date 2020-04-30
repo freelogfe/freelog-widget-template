@@ -10,6 +10,11 @@ const {serverOrigin, projectPackage, colorLog} = require('./config');
 
 async function main() {
 
+    if (!fs.existsSync(projectPackage.main)){
+        colorLog.error(`Please build ! Run 'npm run build'`);
+        return null;
+    }
+
     const fileSha1 = getFileSha1(projectPackage.main);
     const {data: resource} = await axios.get(serverOrigin + '/v1/resources/' + fileSha1, {
         headers: {
