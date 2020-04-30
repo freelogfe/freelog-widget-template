@@ -1,21 +1,41 @@
-const {serverOrigin} = require('./config');
-
 const fs = require('fs');
 const FormData = require('form-data');
 const axios = require('axios');
 const request = require('request');
+const crypto = require('crypto');
 
-const {getCookies} = require('./get-auth-info');
-const {projectPackage} = require('./config');
+const {getCookies, getUserInfo} = require('./get-auth-info');
+const {serverOrigin, projectPackage, colorLog} = require('./config');
+
 
 async function main() {
-    const result = await uploadWidget('build/direflowBundle.js');
-    if (result.isExistResource) {
-        console.log('Widget already exists !');
-        return result;
+
+    const fileSha1 = getFileSha1(projectPackage.main);
+    const {data: resource} = await axios.get(serverOrigin + '/v1/resources/' + fileSha1, {
+        headers: {
+            'Cookie': await getCookies(),
+        },
+    });
+
+    if (resource.ret !== 0 || resource.errcode !== 0) {
+        colorLog.error(JSON.stringify(resource.msg, null, 2));
+        return null;
     }
 
-    // const pkg = JSON.parse(fs.readFileSync('package.json'));
+    if (resource.data) {
+
+        const userInfo = await getUserInfo();
+        if (userInfo.userId === resource.data.userId) {
+            colorLog.success('Widget already uploaded !');
+            return resource.data;
+        }
+
+        colorLog.error('Widget already exists !');
+        return null;
+    }
+
+    // console.log('######');
+    const result = await uploadWidget(projectPackage.main);
     const params = {
         aliasName: projectPackage.name,
         uploadFileId: result.uploadFileId,
@@ -30,10 +50,11 @@ async function main() {
     const {data} = await axios.post(serverOrigin + '/v1/resources', params, config);
 
     if (data.ret !== 0 || data.errcode !== 0) {
-        throw new Error(data.ret.msg);
+        colorLog.error(JSON.stringify(data.msg, null, 2));
+        return null;
     }
 
-    console.log('Create resource successfull !')
+    colorLog.success('Create resource successfull !');
     return data.data;
 
 }
@@ -74,3 +95,9 @@ function uploadWidget(filePath) {
     });
 }
 
+function getFileSha1(filePath) {
+    const hash = crypto.createHash('sha1');
+    const str = fs.readFileSync(filePath);
+    hash.update(str);
+    return hash.digest('hex');
+}

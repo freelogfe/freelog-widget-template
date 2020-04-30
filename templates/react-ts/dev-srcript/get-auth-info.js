@@ -1,11 +1,10 @@
-const {serverOrigin} = require('./config');
-
 const os = require('os');
 const path = require('path');
 const fs = require('fs');
 const axios = require('axios');
 const inquirer = require('inquirer');
 
+const {serverOrigin, colorLog} = require('./config');
 const cookiesPath = path.resolve(os.homedir(), '.freelog/authInfo.json');
 
 async function login() {
@@ -36,10 +35,10 @@ async function login() {
             break;
         }
 
-        console.log('Invalid username or password !!!');
+        colorLog.error('Invalid username or password !!!');
     }
 
-    console.log('Login successfull !');
+    colorLog.success('Login successfull !');
 
     const cookies = response.headers['set-cookie'][0];
 
@@ -51,6 +50,13 @@ async function login() {
     const authInfoPath = path.resolve(os.homedir(), '.freelog/authInfo.json');
     fs.writeFileSync(authInfoPath, JSON.stringify(content, null, 2), 'utf-8');
     return content;
+}
+
+if (require.main === module){
+    (async () => {
+        // console.log(await getUserInfo());
+        console.log(await getCookies());
+    })();
 }
 
 async function getCookies(forceLogin) {
@@ -75,5 +81,4 @@ async function getUserInfo(forceLogin) {
 module.exports = {
     getUserInfo,
     getCookies,
-    login,
 };

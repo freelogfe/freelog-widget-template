@@ -1,8 +1,9 @@
 const fs = require('fs');
 const axios = require('axios');
+const semver = require('semver')
 
 const {getUserInfo, getCookies} = require('./get-auth-info');
-const {serverOrigin, projectPackage} = require('./config');
+const {serverOrigin, projectPackage, colorLog} = require('./config');
 const uploadResource = require('./upload-resource');
 
 async function init() {
@@ -21,11 +22,26 @@ async function init() {
 
     const {data} = await axios.get(serverOrigin + '/v1/releases/detail', config);
     if (data.data) {
-        await updateRelease(data.data.releaseId);
-        console.log('Update release successfull !')
+
+        const publishedVersion = data.data.latestVersion.version;
+        if (!semver.gt(projectPackage.version, publishedVersion)) {
+            colorLog.error(`You cannot publish over the previously published version: ${publishedVersion} !`);
+            colorLog.error(`Please update your 'version' field of 'package.json' !!!`);
+            return null;
+        }
+
+        const result = await updateRelease(data.data);
+        if (result === null) {
+            return;
+        }
+
+        colorLog.success('Update release successfull !')
     } else {
-        await newRelease();
-        console.log('Create release successfull !')
+        const result = await newRelease();
+        if (result === null) {
+            return;
+        }
+        colorLog.success('Create release successfull !')
     }
 
 }
@@ -33,12 +49,14 @@ async function init() {
 init();
 
 async function newRelease() {
-    // console.log('******');
     const resource = await uploadResource();
-    // console.log(resource, 'resource');
+
+    if (resource === null) {
+        return null;
+    }
 
     const params = {
-        resourceId: resource.resourceId || resource.sha1,
+        resourceId: resource.resourceId,
         releaseName: projectPackage.name,
         version: projectPackage.version,
         baseUpcastReleases: [],
@@ -54,17 +72,29 @@ async function newRelease() {
     const {data} = await axios.post(serverOrigin + '/v1/releases', params, config);
 
     if (data.ret !== 0 || data.errcode !== 0) {
-        throw new Error(data.ret.msg);
+        colorLog.error(JSON.stringify(data.ret.msg, null, 2));
+        return null;
     }
 
     return data.data;
 }
 
-async function updateRelease(releaseId) {
+async function updateRelease(release) {
     const resource = await uploadResource();
-    console.log(resource, releaseId);
+
+    if (resource === null) {
+        return null;
+    }
+
+    const exitsResource = release.resourceVersions.map(i => i.resourceId);
+    if (exitsResource.includes(resource.resourceId)) {
+        colorLog.error('The current release a version already exists for the resource !');
+        colorLog.error('Cannot add duplicate !!!');
+        return null;
+    }
+
     const params = {
-        resourceId: resource.resourceId || resource.sha1,
+        resourceId: resource.resourceId,
         version: projectPackage.version,
         resolveReleases: [],
     };
@@ -74,10 +104,11 @@ async function updateRelease(releaseId) {
         },
     };
 
-    const {data} = await axios.post(serverOrigin + `/v1/releases/${releaseId}/versions`, params, config);
+    const {data} = await axios.post(serverOrigin + `/v1/releases/${release.releaseId}/versions`, params, config);
 
     if (data.ret !== 0 || data.errcode !== 0) {
-        throw new Error(data.ret.msg);
+        colorLog.error(JSON.stringify(data.msg, null, 2));
+        return null;
     }
 
     return data.data;
