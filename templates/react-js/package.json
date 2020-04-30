@@ -50,7 +50,9 @@
     "axios": "^0.19.2",
     "html-loader": "^1.1.0",
     "request": "^2.88.2",
-    "inquirer": "^7.1.0"
+    "inquirer": "^7.1.0",
+    "chalk-pipe": "^4.0.0",
+    "semver": "^7.3.2"
   },
   "eslintConfig": {
     "extends": "react-app"
