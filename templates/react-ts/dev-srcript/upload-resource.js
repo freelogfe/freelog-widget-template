@@ -33,6 +33,7 @@ async function main() {
         throw new Error(data.ret.msg);
     }
 
+    console.log('Create resource successfull !')
     return data.data;
 
 }
