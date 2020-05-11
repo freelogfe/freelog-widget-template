@@ -23,11 +23,11 @@
     "build"
   ],
   "scripts": {
-    "start": "node dev-script/generate-page-template.js && direflow-scripts start",
+    "start": "freelog-cli getenv && direflow-scripts start",
     "build": "direflow-scripts build",
     "build:lib": "direflow-scripts build:lib",
-    "upload": "node dev-script/upload-resource.js",
-    "release": "node dev-script/release-resource.js",
+    "upload": "freelog-cli upload",
+    "release": "freelog-cli release",
     "test": "direflow-scripts test"
   },
   "dependencies": {
