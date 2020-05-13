@@ -12,37 +12,31 @@ const App = (props) => {
   };
 
   const renderSampleList = props.sampleList.map((sample) => (
-    <div key={sample} className='sample-text'>
-      → {sample}
-    </div>
+      <div key={sample}>
+        → {sample}
+      </div>
   ));
 
   return (
-    <Styled styles={styles}>
-      <div className='app'>
-        <div className='top'>
-          <div className='header-image' />
+      <Styled styles={styles}>
+        <div className="wrapper">
+          <span><img onClick={handleClick} src={'https://silind-s3.s3.eu-west-2.amazonaws.com/direflow/logo.svg'} alt=""/></span>
+          <h3 className="info">{props.componentTitle}</h3>
+          {renderSampleList}
         </div>
-        <div className='bottom'>
-          <div className='header-title'>{props.componentTitle}</div>
-          <div>{renderSampleList}</div>
-          <button className='button' onClick={handleClick}>
-            Click me!
-          </button>
-        </div>
-      </div>
-    </Styled>
+      </Styled>
   );
 };
 
 App.defaultProps = {
-  componentTitle: 'React Js',
+  componentTitle: 'Hello Freelog !',
   sampleList: [
     'Create with React',
     'Build as Web Component',
     'Use it anywhere!',
   ],
-}
+  logo: '//silind-s3.s3.eu-west-2.amazonaws.com/direflow/logo.svg',
+};
 
 App.propTypes = {
   componentTitle: PropTypes.string,
