@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "author": "{{author}}",
   "license": "{{license}}",
-  "main": "index.js",
+  "main": "build/bundle.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "start": "freelog-cli getenv && webpack-dev-server --config webpack.dev.js",
+    "build": "webpack --config webpack.prod.js",
+    "upload": "freelog-cli upload",
+    "release": "freelog-cli release"
   },
   "keywords": [],
   "devDependencies": {
