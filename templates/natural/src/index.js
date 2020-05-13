@@ -16,7 +16,7 @@ class App extends HTMLElement {
         const icon = document.createElement('span');
         icon.setAttribute('class', 'icon');
         icon.setAttribute('tabindex', 0);
-        const info = document.createElement('span');
+        const info = document.createElement('h3');
         info.setAttribute('class', 'info');
 
         info.textContent = 'Hello Freelog !';
