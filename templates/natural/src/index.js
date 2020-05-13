@@ -5,7 +5,11 @@ class App extends HTMLElement {
     constructor() {
         super();
 
-        const shadow = this.attachShadow({mode: {{#if enableShadowDom}}'open'{{else}}'closed'{{/if}}});
+        {{#if enableShadowDom}}
+        const shadow = this.attachShadow({mode: 'open'});
+        {{else}}
+        const shadow = this.attachShadow({mode: 'closed'});
+        {{/if}}
 
         const wrapper = document.createElement('div');
         wrapper.setAttribute('class', 'wrapper');
