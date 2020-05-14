@@ -6,34 +6,6 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
     devtool: 'source-map',
-    entry: {},
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: 'css-loader',
-                        // options: {
-                        //     minimize: true,
-                        //     sourceMap: true,
-                        // }
-                    }
-                ],
-            },
-            {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: true,
-                        },
-                    },
-                ],
-            },
-        ],
-    },
     plugins: [
         new CleanWebpackPlugin({cleanOnceBeforeBuildPatterns: ['**/*']}),
         new webpack.DefinePlugin({

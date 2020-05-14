@@ -4,43 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
-    module: {
-        rules: [
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        },
-                    },
-                ],
-            },
-            // {
-            //     test: /\.less$/,
-            //     use: [
-            //         {
-            //             loader: 'css-loader',
-            //         },
-            //         {
-            //             loader: "less-loader",
-            //         },
-            //     ],
-            // },
-            {
-                test: /\.(png|svg|jpg|gif)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: false,
-                        },
-                    },
-                ],
-            },
-        ],
-    },
     devtool: 'inline-source-map',
     devServer: {
         hot: true,
