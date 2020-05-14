@@ -1,4 +1,4 @@
-const cssStr = require('./index.css');
+import cssStr from './index.css';
 import logo from './logo.svg';
 
 class App extends HTMLElement {
