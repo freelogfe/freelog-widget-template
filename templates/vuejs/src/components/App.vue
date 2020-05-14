@@ -2,8 +2,8 @@
     <div class="wrapper">
         <span>
             <img :src="logo" alt=""/></span>
-        <h3 class="info">{{componentTitle}}</h3>
-        <div v-for="sample in sampleList">{{sample}}</div>
+        <h3 class="info" v-text="componentTitle"></h3>
+        <div v-for="sample in sampleList" v-text="sample"></div>
     </div>
 </template>
 
