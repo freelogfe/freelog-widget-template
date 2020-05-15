@@ -9,6 +9,9 @@ module.exports = merge(common, {
         hot: true,
         open: true,
         port: 8080,
+        proxy: {
+            '/v1': 'http://qi.testfreelog.com'
+        }
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
