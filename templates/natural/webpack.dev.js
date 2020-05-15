@@ -11,7 +11,6 @@ module.exports = merge(common, {
         port: 8080,
     },
     plugins: [
-        new webpack.NamedModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
             template: './public/index.html',

@@ -1,5 +1,3 @@
-const path = require('path');
-
 module.exports = {
     entry: {
         app: './src/index.js',
@@ -9,11 +7,17 @@ module.exports = {
             {
                 test: /\.css$/,
                 use: [
+                    'raw-loader',
+                ],
+            },
+            {
+                test: /\.less$/,
+                use: [
                     {
-                        loader: 'css-loader',
-                        options: {
-                            sourceMap: true,
-                        },
+                        loader: 'raw-loader',
+                    },
+                    {
+                        loader: "less-loader",
                     },
                 ],
             },
@@ -23,7 +27,7 @@ module.exports = {
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: false,
+                            limit: true,
                         },
                     },
                 ],
