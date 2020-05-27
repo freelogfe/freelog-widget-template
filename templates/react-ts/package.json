@@ -23,11 +23,11 @@
     "build"
   ],
   "scripts": {
-    "start": "freelog-cli getenv && direflow-scripts start",
+    "start": "freelog-scripts getenv && direflow-scripts start",
     "build": "direflow-scripts build",
     "build:lib": "direflow-scripts build:lib",
-    "upload": "freelog-cli upload",
-    "release": "freelog-cli release",
+    "upload": "freelog-scripts upload",
+    "release": "freelog-scripts release",
     "test": "direflow-scripts test"
   },
   "dependencies": {
@@ -37,6 +37,7 @@
     "react-scripts": "^3.4.1"
   },
   "devDependencies": {
+    "@freelog/freelog-scripts": "^0.0.1",
     "@types/jest": "^25.2.1",
     "@types/node": "^13.13.5",
     "@types/react": "^16.9.35",

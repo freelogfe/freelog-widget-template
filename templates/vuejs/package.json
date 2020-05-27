@@ -6,13 +6,14 @@
   "license": "{{license}}",
   "main": "build/bundle.js",
   "scripts": {
-    "start": "freelog-cli getenv && webpack-dev-server --config webpack.dev.js",
+    "start": "freelog-scripts getenv && webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "upload": "freelog-cli upload",
-    "release": "freelog-cli release"
+    "upload": "freelog-scripts upload",
+    "release": "freelog-scripts release"
   },
   "keywords": [],
   "devDependencies": {
+    "@freelog/freelog-scripts": "^0.0.1",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.5.3",
     "file-loader": "^6.0.0",
