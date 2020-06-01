@@ -1,0 +1,25 @@
+{
+  "name": "freelog-hello-0041",
+  "description": "A freelog widget",
+  "version": "1.0.0",
+  "author": "",
+  "license": "MIT",
+  "main": "build/bundle.js",
+  "scripts": {
+    "start": "freelog-scripts getenv && freelog-scripts start",
+    "build": "freelog-scripts build",
+    "upload": "freelog-scripts upload",
+    "release": "freelog-scripts release"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@freelog/freelog-scripts": "^0.0.6"
+  },
+  "dependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-react": "^7.10.1",
+    "babel-loader": "^8.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  }
+}
