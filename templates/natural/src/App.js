@@ -1,4 +1,4 @@
-import cssStr from './index.css';
+import cssStr from './index.less';
 import logo from './logo.svg';
 
 export default class App extends HTMLElement {

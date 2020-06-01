@@ -31,7 +31,7 @@ npm run build
    |- index.html
 |- /src
    |- index.js
-   |- index.css
+   |- index.less
    |- /component1
       |- component1.js
       |- math.js
