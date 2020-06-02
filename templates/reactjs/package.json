@@ -16,9 +16,6 @@
     "@freelog/freelog-scripts": "^0.0.6"
   },
   "dependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/preset-react": "^7.10.1",
-    "babel-loader": "^8.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
