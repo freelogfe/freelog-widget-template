@@ -17,4 +17,4 @@ class CustomElement extends HTMLElement {
     }
 }
 
-customElements.define('freelog-hello-0041', CustomElement);
+customElements.define('{{name}}', CustomElement);

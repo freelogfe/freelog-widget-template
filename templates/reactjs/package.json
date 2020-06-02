@@ -1,9 +1,9 @@
 {
-  "name": "freelog-hello-0041",
-  "description": "A freelog widget",
+  "name": "{{name}}",
+  "description": "{{description}}",
   "version": "1.0.0",
-  "author": "",
-  "license": "MIT",
+  "author": "{{author}}",
+  "license": "{{license}}",
   "main": "build/bundle.js",
   "scripts": {
     "start": "freelog-scripts getenv && freelog-scripts start",
