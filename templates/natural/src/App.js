@@ -4,15 +4,8 @@ import logo from './logo.svg';
 export default class App extends HTMLElement {
     constructor() {
         super();
-
-        {{#enableShadowDom}}
-        const shadow = this.attachShadow({mode: 'open'});
-        {{/enableShadowDom}}
-
-        {{#!enableShadowDom}}
-        const shadow = this.attachShadow({mode: 'closed'});
-        {{/!enableShadowDom}}
-
+        {{#enableShadowDom}}const shadow = this.attachShadow({mode: 'open'});{{/enableShadowDom}}
+        {{#!enableShadowDom}}const shadow = this.attachShadow({mode: 'closed'});{{/!enableShadowDom}}
         const wrapper = document.createElement('div');
         wrapper.setAttribute('class', 'wrapper');
         const icon = document.createElement('span');
