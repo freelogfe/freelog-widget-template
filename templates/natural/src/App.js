@@ -5,11 +5,13 @@ export default class App extends HTMLElement {
     constructor() {
         super();
 
-        {% if enableShadowDom %}
+        {{#enableShadowDom}}
         const shadow = this.attachShadow({mode: 'open'});
-        {% else %}
+        {{/enableShadowDom}}
+
+        {{#!enableShadowDom}}
         const shadow = this.attachShadow({mode: 'closed'});
-        {% endif %}
+        {{/!enableShadowDom}}
 
         const wrapper = document.createElement('div');
         wrapper.setAttribute('class', 'wrapper');
