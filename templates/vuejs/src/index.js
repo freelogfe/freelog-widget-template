@@ -5,8 +5,7 @@ import App from './components/App.vue';
 import shadowCss from './index.less';
 
 Vue.use(vueCustomElement);
-
 Vue.customElement('{{name}}', App, {
-    shadow: true,
+    shadow: {{enableShadowDom}},
     shadowCss,
 });

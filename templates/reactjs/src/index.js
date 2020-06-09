@@ -6,8 +6,8 @@ import cssStr from './index.less';
 class CustomElement extends HTMLElement {
     connectedCallback() {
         const wrapper = document.createElement('div');
-        const shadow = this.attachShadow({mode: 'open'});
-
+        {{#enableShadowDom}}const shadow = this.attachShadow({mode: 'open'});{{/enableShadowDom}}
+        {{#!enableShadowDom}}const shadow = this.attachShadow({mode: 'closed'});{{/!enableShadowDom}}
         const style = document.createElement('style');
         style.textContent = cssStr;
         shadow.appendChild(style);
