@@ -1,11 +1,8 @@
 import Vue from 'vue';
-import vueCustomElement from 'vue-custom-element';
-import App from './components/App.vue';
+import App from './App.vue';
+import './index.less';
 
-import shadowCss from './index.less';
+new Vue({
+    render: h => h(App),
+}).$mount('#js-page-container');
 
-Vue.use(vueCustomElement);
-Vue.customElement('{{name}}', App, {
-    shadow: {{enableShadowDom}},
-    shadowCss,
-});

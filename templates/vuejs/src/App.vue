@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import logo from '../assets/logo.svg';
+    import logo from './logo.svg';
 
     export default {
         name: 'App',
@@ -28,3 +28,28 @@
     }
 </script>
 
+<style lang="less">
+    .wrapper {
+        font-size: 24px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        line-height: 2;
+        padding: 30px;
+    }
+
+    @keyframes App-logo-spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    img {
+        width: 200px;
+        animation: App-logo-spin infinite 20s linear;
+    }
+
+</style>
