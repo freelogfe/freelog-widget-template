@@ -1,57 +1,35 @@
-import cssStr from './index.less';
+import './index.less';
 import logo from './logo.svg';
 
-export default class App extends HTMLElement {
-    constructor() {
-        super();
-        {{#enableShadowDom}}const shadow = this.attachShadow({mode: 'open'});{{/enableShadowDom}}
-        {{#!enableShadowDom}}const shadow = this.attachShadow({mode: 'closed'});{{/!enableShadowDom}}
-        const wrapper = document.createElement('div');
-        wrapper.setAttribute('class', 'wrapper');
-        const icon = document.createElement('span');
-        icon.setAttribute('class', 'icon');
-        icon.setAttribute('tabindex', 0);
-        const info = document.createElement('h3');
-        info.setAttribute('class', 'info');
+export default function App(shadow) {
+    const wrapper = document.createElement('div');
+    wrapper.setAttribute('class', 'wrapper');
+    const icon = document.createElement('span');
+    icon.setAttribute('class', 'icon');
+    icon.setAttribute('tabindex', 0);
+    const info = document.createElement('h3');
+    info.setAttribute('class', 'info');
 
-        info.textContent = 'Hello Freelog !';
+    info.textContent = 'Hello Freelog !';
 
-        let imgUrl;
-        if (this.hasAttribute('img')) {
-            imgUrl = this.getAttribute('img');
-        } else {
-            imgUrl = logo;
-        }
-        const img = document.createElement('img');
-        img.src = imgUrl;
-        icon.appendChild(img);
+    const imgUrl = logo;
+    const img = document.createElement('img');
+    img.src = imgUrl;
+    icon.appendChild(img);
 
-        var style = document.createElement('style');
+    shadow.appendChild(wrapper);
+    wrapper.appendChild(icon);
+    wrapper.appendChild(info);
 
-        style.textContent = cssStr;
+    const info1 = document.createElement('div');
+    info1.textContent = 'Create with Natural';
+    wrapper.appendChild(info1);
 
-        shadow.appendChild(style);
-        shadow.appendChild(wrapper);
-        wrapper.appendChild(icon);
-        wrapper.appendChild(info);
+    const info2 = document.createElement('div');
+    info2.textContent = 'Build as Web Component';
+    wrapper.appendChild(info2);
 
-        const info1 = document.createElement('div');
-        info1.textContent = 'Create with Natural';
-        wrapper.appendChild(info1);
-
-        const info2 = document.createElement('div');
-        info2.textContent = 'Build as Web Component';
-        wrapper.appendChild(info2);
-
-        const info3 = document.createElement('div');
-        info3.textContent = 'Use it anywhere!';
-        wrapper.appendChild(info3);
-    }
-
-    connectedCallback() {
-
-    }
+    const info3 = document.createElement('div');
+    info3.textContent = 'Use it anywhere!';
+    wrapper.appendChild(info3);
 }
-
-
-

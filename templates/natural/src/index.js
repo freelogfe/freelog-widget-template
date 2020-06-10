@@ -1,4 +1,3 @@
 import App from './App';
 
-
-customElements.define('{{name}}', App);
+App(document.querySelector('#js-page-container'));
