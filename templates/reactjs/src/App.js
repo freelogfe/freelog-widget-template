@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from '../logo.svg';
-//
+import logo from './logo.svg';
+import './App.less';
 
 const sampleList = [
     'Create with React',
@@ -9,7 +9,6 @@ const sampleList = [
 ];
 
 export default function App() {
-    // return (<div>hello</div>)
 
     return (<div className="wrapper">
         <span><img src={logo} alt=""/></span>
