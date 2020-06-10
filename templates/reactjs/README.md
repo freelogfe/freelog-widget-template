@@ -1,71 +1,19 @@
-# freelog-hello-0041
+This project was bootstrapped with [Create Freelog App](https://github.com/freelogfe/freelogfe-lib-repos/tree/master/packages/create-freelog-app).
 
-## 功能介绍
-A freelog widget
+## Available Scripts
 
-## 节点使用说明
+In the project directory, you can run:
 
-### 节点资源配置说明
-节点中，插件须搭配如下资源方可使用
+### `npm start`
 
-#### 资源一：`头图` 
-- 描述：页面头部封面图
-- 类型：image
-- 是否必须：是
-- 标签：无
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-#### 资源二：`剧集 - 导航` 
-- 描述：通过给资源打标签的方式，动态控制剧集导航
-- 资源类型：json
-- 是否必须：是
-- 标签：
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-|名称|是否必须 |描述|
-|---|---|---|
-|nav-tags|是|用于标记该JSON资源，方便接口查询|
-|nav-1-200|是|表示1-200的剧集导航|
+### `npm run build`
 
-- meta: 无
-
-- 资源内容：
-
-```
-[{}]
-```
-
-## 开发者使用说明
-
-### 调用方式
-|属性（参数）|必填|描述|
-|---|---|---|
-|data-widget-src|无|widget的资源ID|
-
-```html
-<!--在PB中引用-->
-<freelog-hello-0041  class="js-wc-widget" data-widget-src="d2686bda89418e51bae5739a5411f245f0e0d78c"></freelog-hello-0041>
-```
-
-```javascript
-// JS中调用
-window.FreelogApp.QI.requireSubSource('d2686bda89418e51bae5739a5411f245f0e0d78c')
-    .then(res => {
-        var elem = document.createElement('freelog-hello-0041')
-        document.querySelector('body').append(elem)
-    })
-```
-
-
-### 依赖资源
-|资源名称|资源ID|
-|---|---|
-|无|无|
-
-
-### 资源meta
-无
-
-
-### 效果图
-![image](your image url)
-
+Builds the app for production to the `build` folder.<br />
+Your app is ready to be deployed!
 
