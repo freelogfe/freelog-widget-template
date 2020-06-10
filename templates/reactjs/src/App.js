@@ -9,7 +9,6 @@ const sampleList = [
 ];
 
 export default function App() {
-
     return (<div className="wrapper">
         <span><img src={logo} alt=""/></span>
         <h3 className="info">Hello Freelog !</h3>
