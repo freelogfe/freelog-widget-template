@@ -6,7 +6,7 @@
   "license": "{{license}}",
   "main": "build/bundle.js",
   "scripts": {
-    "start": "freelog-scripts getenv && freelog-scripts start",
+    "start": "freelog-scripts start",
     "build": "freelog-scripts build",
     "upload": "freelog-scripts upload",
     "release": "freelog-scripts release"
