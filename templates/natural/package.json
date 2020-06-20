@@ -4,14 +4,17 @@
   "version": "1.0.0",
   "author": "{{author}}",
   "license": "{{license}}",
-  "main": "src/index.js",
+  "main": "dist/{{name}}.js",
   "scripts": {
-    "dev": "freelog-cli-service serve --open",
-    "build": "freelog-cli-service build"
+    "dev": "freelog-cli-service serve",
+    "build": "freelog-cli-service build",
+    "upload": "freelog-scripts upload",
+    "release": "freelog-scripts release"
   },
   "keywords": [],
   "devDependencies": {
-    "@freelog/cli-service": "^0.1.7"
+    "@freelog/cli-service": "^0.1.7",
+    "@freelog/freelog-scripts": "^0.0.16"
   },
   "dependencies": {}
 }
