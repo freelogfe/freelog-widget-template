@@ -4,19 +4,15 @@
   "version": "1.0.0",
   "author": "{{author}}",
   "license": "{{license}}",
-  "main": "build/bundle.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "freelog-scripts start",
-    "build": "freelog-scripts build",
-    "upload": "freelog-scripts upload",
-    "release": "freelog-scripts release"
+    "dev": "freelog-cli-service serve --open",
+    "build": "freelog-cli-service build"
   },
   "keywords": [],
   "devDependencies": {
-    "@freelog/freelog-scripts": "^0.0.16"
+    "@freelog/cli-service": "^0.1.7"
   },
   "dependencies": {
-    "vue": "^2.6.11",
-    "vue-custom-element": "^3.2.14"
   }
 }
