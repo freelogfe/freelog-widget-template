@@ -16,5 +16,11 @@
   },
   "engines": {
     "node": ">=6.0.0"
+  },
+  "__templates_description__": {
+    "natural": "Create a project without any front-end framework",
+    "react": "Create a project based on the react framework",
+    "react-ts": "Create a project based on the react framework and supporting typescript syntax",
+    "vue": "Create a project based on the vue framework" 
   }
 }
