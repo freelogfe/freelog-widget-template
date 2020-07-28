@@ -3,12 +3,8 @@ const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const path = require('path')
 const CWD = process.cwd()
-
-const [ appName, appEntry, appOutputPath ] = [
-  'app-vue',
-  '/Users/wwz/FrontEnd/freelogfe/freelog-examples/packages/app-vue/src/index.js',
-  '/Users/wwz/FrontEnd/freelogfe/freelog-examples/packages/app-vue/dist',
-]
+const appName = require(path.join(CWD, 'package.json')).name
+const [ appEntry, appOutputPath ] = [ path.join(CWD, 'src/index.js'), path.join(CWD, 'dist') ]
 
 module.exports = {
   mode: 'development',

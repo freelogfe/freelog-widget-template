@@ -3,11 +3,8 @@ const webpack = require('webpack')
 const path = require('path')
 const CWD = process.cwd()
 
-const [ appName, appEntry, appOutputPath ] = [
-  'app-natural',
-  '/Users/wwz/FrontEnd/freelogfe/freelog-examples/packages/app-natural/src/index.js',
-  '/Users/wwz/FrontEnd/freelogfe/freelog-examples/packages/app-natural/dist',
-]
+const appName = require(path.join(CWD, 'package.json')).name
+const [ appEntry, appOutputPath ] = [ path.join(CWD, 'src/index.js'), path.join(CWD, 'dist') ]
 
 module.exports = {
   mode: 'development',

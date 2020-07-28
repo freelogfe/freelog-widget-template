@@ -3,12 +3,8 @@ const path = require('path')
 const webpack = require('webpack')
 const { CheckerPlugin } = require('awesome-typescript-loader')
 const CWD = process.cwd()
-
-const [ appName, appEntry, appOutputPath ] = [
-  'app-react-ts',
-  '/Users/wwz/FrontEnd/freelogfe/freelog-examples/packages/app-react-ts/src/index.tsx',
-  '/Users/wwz/FrontEnd/freelogfe/freelog-examples/packages/app-react-ts/dist',
-]
+const appName = require(path.join(CWD, 'package.json')).name
+const [ appEntry, appOutputPath ] = [ path.join(CWD, 'src/index.js'), path.join(CWD, 'dist') ]
 
 module.exports = {
   mode: 'development',
