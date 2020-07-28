@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@freelog/cli-service": "^0.1.10",
+    "@freelog/cli-service": "^0.1.12",
     "@freelog/freelog-scripts": "^0.0.18",
     "vue-loader": "^15.9.3",
     "vue-style-loader": "^4.1.2",

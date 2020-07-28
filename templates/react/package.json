@@ -15,7 +15,7 @@
   "devDependencies": {
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/preset-env": "^7.10.4",
-    "@freelog/cli-service": "^0.1.10",
+    "@freelog/cli-service": "^0.1.12",
     "@freelog/freelog-scripts": "^0.0.18",
     "react-hot-loader": "^4.12.21"
   },
