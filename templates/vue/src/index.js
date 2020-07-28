@@ -1,8 +1,9 @@
-import Vue from 'vue';
-import App from './App.vue';
-import './index.less';
+import Vue from 'vue'
+import App from './App.vue'
+import './index.less'
 
 new Vue({
-    render: h => h(App),
-}).$mount('#js-page-container');
+  el: '#freelog-app',
+  render: h => h(App),
+})
 

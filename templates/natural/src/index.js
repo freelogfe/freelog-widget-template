@@ -1,3 +1,3 @@
-import App from './App';
+import mountApp from './App'
 
-App(document.querySelector('#js-page-container'));
+mountApp()

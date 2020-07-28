@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@freelog/cli-service": "^0.1.10",
+    "@freelog/cli-service": "^0.1.11",
     "@freelog/freelog-scripts": "^0.0.18"
   },
   "dependencies": {}
