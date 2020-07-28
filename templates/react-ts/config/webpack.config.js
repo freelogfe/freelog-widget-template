@@ -4,7 +4,7 @@ const webpack = require('webpack')
 const { CheckerPlugin } = require('awesome-typescript-loader')
 const CWD = process.cwd()
 const appName = require(path.join(CWD, 'package.json')).name
-const [ appEntry, appOutputPath ] = [ path.join(CWD, 'src/index.js'), path.join(CWD, 'dist') ]
+const [ appEntry, appOutputPath ] = [ path.join(CWD, 'src/index.tsx'), path.join(CWD, 'dist') ]
 
 module.exports = {
   mode: 'development',
